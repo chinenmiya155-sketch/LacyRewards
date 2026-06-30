@@ -41,7 +41,7 @@ button:hover{transform:translateY(-2px) scale(1.02)}
 <div id="done" class="hidden"><div class="confetti">🎉✨🎊</div><h2>Congratulations! All tasks completed.</h2></div>
 </div></div></div>
 <script>
-const links=["https://lnbz.la/fzTmjr0","https://lnbz.la/qvYsVAK","https://lnbz.la/8HGN","https://lnbz.la/DnUcxUZ"];
+const links=["https://lnbz.la/Uv3YPr","https://lnbz.la/qvYsVAK","https://lnbz.la/8HGN","https://lnbz.la/BVr0ZS1B"];
 let s=[0,0,0,0];
 function start(){const n=nick.value.trim();if(!n)return alert("Enter username");login.classList.add("hidden");tasks.classList.remove("hidden");hello.textContent="Hello, "+n+" 👋";}
 function go(i,b){window.open(links[i],"_blank");if(s[i])return;s[i]=1;b.textContent="✓ Completed";b.classList.add("done");let c=s.reduce((a,v)=>a+v,0);txt.textContent=c+"/4";fill.style.width=(c*25)+"%";if(c===4)done.classList.remove("hidden");}
