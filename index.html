@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rewards Hub</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);display:flex;justify-content:center;align-items:center;min-height:100vh;color:#fff}
+.card{width:min(92vw,430px);background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:28px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+input,button{width:100%;padding:14px;border-radius:12px;border:0;font-size:16px}
+input{background:#1e293b;color:#fff;margin:18px 0}
+button{background:#6366f1;color:#fff;cursor:pointer}
+.hidden{display:none}.task{margin-top:10px;background:#1e293b}.done{background:#16a34a}
+.bar{height:10px;background:#23324b;border-radius:999px;overflow:hidden;margin:10px 0 20px}
+.fill{height:100%;width:0;background:#22c55e;transition:.3s}
+</style></head><body>
+<div class=card>
+<div id=login><h1>🎁 Rewards Hub</h1><p>Complete 4 tasks.</p><input id=nick placeholder="Enter your username"><button onclick=start()>Continue</button></div>
+<div id=tasks class=hidden><h2 id=hello></h2><div>Progress <span id=txt>0/4</span></div><div class=bar><div id=fill class=fill></div></div>
+<button class="task" onclick="go(0,this)">Task 1</button>
+<button class="task" onclick="go(1,this)">Task 2</button>
+<button class="task" onclick="go(2,this)">Task 3</button>
+<button class="task" onclick="go(3,this)">Task 4</button>
+<h2 id=done class=hidden>🎉 Congratulations! All tasks completed.</h2></div>
+</div>
+<script>
+const links=["https://example.com/1","https://example.com/2","https://example.com/3","https://example.com/4"];
+let s=[0,0,0,0];
+function start(){let n=document.getElementById('nick').value.trim();if(!n)return alert('Enter username');login.classList.add('hidden');tasks.classList.remove('hidden');hello.textContent='Hello, '+n+' 👋';}
+function go(i,b){window.open(links[i],'_blank');if(s[i])return;s[i]=1;b.textContent='✅ Completed';b.classList.add('done');let c=s.reduce((a,v)=>a+v,0);txt.textContent=c+'/4';fill.style.width=(c*25)+'%';if(c===4)done.classList.remove('hidden');}
+</script></body></html>
